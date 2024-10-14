@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Product Card | code_wars_official </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+<body>
+    <div class="card">
+        <div class="circle" style="--clr:#28a745;">
+            <img src="{% static 'dj.png' %}" alt="" class="logo">
+        </div>
+        <div class="content">
+            <h2>HOLA MUNDO D'JANDO</h2>
+            <p>{{post.message}}</p>
+            <a href="#">Gracias</a>
+        </div>
+        <img src="static/dj_1.png" alt="" class="product_img" max-width='50%'  height= 'auto'>
+    </div>
+</body>
+</html>

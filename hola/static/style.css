@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wgth@300;400;500;600;700;800,900&display=swap');
+/* Importa la fuente 'Poppins' desde Google Fonts con diferentes grosores de letra */
+
+* {
+    font-family: 'Poppins', sans-serif; /* Aplica la fuente 'Poppins' a todos los elementos, con 'sans-serif' como respaldo */
+    padding: 0; /* Elimina el relleno predeterminado de todos los elementos */
+    margin: 0; /* Elimina el margen predeterminado de todos los elementos */
+}
+
+body {
+    display: flex; /* Utiliza Flexbox para organizar el contenido del cuerpo de la página */
+    justify-content: center; /* Centra los elementos hijos horizontalmente dentro del cuerpo */
+    align-items: center; /* Centra los elementos hijos verticalmente dentro del cuerpo */
+    min-height: 100vh; /* Establece una altura mínima de 100% del viewport para el cuerpo */
+    background: #151F28; /* Aplica un color de fondo negro al cuerpo de la página */
+}
+
+.card {
+    position: relative; /* Posiciona la tarjeta de manera relativa, permitiendo el posicionamiento absoluto de sus hijos */
+    width: 350px; /* Establece el ancho inicial de la tarjeta en 350px */
+    height: 350px; /* Establece la altura inicial de la tarjeta en 350px */
+    /* background: #333; */ /* Comentado: Podría ser un color de fondo gris oscuro para la tarjeta */
+    border-radius: 20px; /* Redondea las esquinas de la tarjeta con un radio de 20px */
+    display: flex; /* Utiliza Flexbox para organizar el contenido dentro de la tarjeta */
+    justify-content: center; /* Centra los elementos hijos horizontalmente dentro de la tarjeta */
+    align-items: center; /* Centra los elementos hijos verticalmente dentro de la tarjeta */
+    transition: 0.5s; /* Aplica una transición suave de 0.5 segundos a todas las propiedades animadas de la tarjeta */
+}
+
+.card:hover {
+    width: 600px; /* Al pasar el ratón sobre la tarjeta, su ancho se expande a 600px */
+    transition-delay: 0.5s; /* Retrasa la transición de expansión en 0.5 segundos */
+}
+
+.card .circle {
+    position: absolute; /* Posiciona el círculo de forma absoluta dentro de la tarjeta */
+    width: 100%; /* El círculo ocupa todo el ancho de la tarjeta */
+    height: 100%; /* El círculo ocupa toda la altura de la tarjeta */
+    border-radius: 20px; /* Redondea las esquinas del círculo al mismo nivel que la tarjeta */
+    display: flex; /* Utiliza Flexbox para organizar el contenido dentro del círculo */
+    justify-content: center; /* Centra los elementos hijos horizontalmente dentro del círculo */
+    align-items: center; /* Centra los elementos hijos verticalmente dentro del círculo */
+}
+
+.card .circle::before {
+    content: ''; /* Genera un pseudo-elemento vacío antes del contenido del círculo */
+    position: absolute; /* Posiciona el pseudo-elemento de forma absoluta dentro del círculo */
+    top: 0; /* Alinea la parte superior del pseudo-elemento con la parte superior del círculo */
+    left: 0; /* Alinea la parte izquierda del pseudo-elemento con la parte izquierda del círculo */
+    width: 350px; /* Establece el ancho del pseudo-elemento en 350px */
+    height: 350px; /* Establece la altura del pseudo-elemento en 350px */
+    border-radius: 50%; /* Redondea completamente las esquinas del pseudo-elemento para formar un círculo */
+    border: 8px solid var(--clr); /* Aplica un borde de 8px con el color definido en la variable CSS '--clr' */
+    background-image: url('static/dj.png'); /* Establece un fondo negro para el pseudo-elemento */
+    background-size: cover; /* Asegura que la imagen cubra todo el pseudo-elemento */
+    background-position: center; /* Centra la imagen dentro del pseudo-elemento */
+    transition: 0.5s, background 0.5s; /* Aplica una transición suave de 0.5 segundos al tamaño y al fondo del pseudo-elemento */
+    transition-delay: 0.75s, 1s; /* Establece un retraso en la transición de 0.75 segundos para el tamaño y 1 segundo para el fondo */
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr)); /* Aplica un efecto de sombra al pseudo-elemento con el color de la variable '--clr' */
+}
+
+.justify-indent {
+    text-align: justify;
+    text-indent: 2em;
+}
+
+
+
+.card:hover .circle::before {
+    width: 100%; /* Al pasar el ratón sobre la tarjeta, el ancho del pseudo-elemento se expande para llenar el círculo */
+    transition-delay: 0.5s; /* Retrasa la transición de expansión en 0.5 segundos */
+    height: 100%; /* El pseudo-elemento también se expande en altura para llenar el círculo */
+    border-radius: 20px; /* Cambia el radio de borde para igualar el de la tarjeta */
+    background: var(--clr); /* Cambia el color de fondo del pseudo-elemento al color definido en la variable '--clr' */
+}
+
+.card .circle .logo {
+    position: relative; /* Posiciona el logo de manera relativa dentro del círculo */
+    width: 250px; /* Establece el ancho del logo en 250px */
+    transition: 0.5s; /* Aplica una transición suave de 0.5 segundos al logo */
+    transition-delay: 0.5s; /* Retrasa la transición del logo en 0.5 segundos */
+}
+
+.card:hover .circle .logo {
+    transform: scale(0); /* Al pasar el ratón sobre la tarjeta, el logo se reduce a un tamaño de 0, desapareciendo */
+    transition-delay: 0s; /* El logo se transforma sin retraso adicional */
+}
+
+.card .product_img {
+    position: absolute; /* Posiciona la imagen del producto de forma absoluta dentro de la tarjeta */
+    top: 50%; /* Posiciona la parte superior de la imagen en el 50% del contenedor */
+    left: 50%; /* Posiciona la parte izquierda de la imagen en el 50% del contenedor */
+    transform: translate(-50%, -50%) scale(0) rotate(315deg); /* Centra la imagen y la escala a 0 con una rotación de 315 grados */
+    height: 300px; /* Establece la altura inicial de la imagen en 300px */
+    transition: 0.5s ease-in-out; /* Aplica una transición suave con un efecto de entrada y salida a la imagen */
+
+}
+
+.card:hover .product_img {
+    transition-delay: 0.75s; /* Retrasa la transición de la imagen en 0.75 segundos al pasar el ratón sobre la tarjeta */
+    transform: translate(-50%, -50%) scale(1) rotate(15deg); /* Escala la imagen a su tamaño completo con una rotación de 15 grados */
+    top: 45%; /* Ajusta la posición superior de la imagen al 45% del contenedor */
+    left: 75%; /* Ajusta la posición izquierda de la imagen al 75% del contenedor */
+    height: 69%; /* Aumenta la altura de la imagen a 69% */
+}
+
+.card .content {
+    position: absolute; /* Posiciona el contenido de la tarjeta de forma absoluta dentro de la tarjeta */
+    width: 50%; /* Establece que el contenido ocupe el 50% del ancho de la tarjeta */
+    left: 20%; /* Desplaza el contenido 20% desde la izquierda del contenedor */
+    padding: 20px 20px 20px 40px; /* Aplica relleno interno al contenido con diferentes valores para cada lado */
+    opacity: 0; /* Inicialmente, el contenido es invisible debido a una opacidad de 0 */
+    transition: 0.5s; /* Aplica una transición suave de 0.5 segundos al contenido */
+    visibility: hidden; /* El contenido es inicialmente invisible */
+}
+
+.card:hover .content {
+    transition-delay: 0.75s; /* Retrasa la transición del contenido en 0.75 segundos al pasar el ratón sobre la tarjeta */
+    opacity: 1; /* Hace visible el contenido al aumentar la opacidad a 1 */
+    visibility: visible; /* Cambia la visibilidad del contenido para que sea visible */
+    left: 0; /* Mueve el contenido hacia la izquierda, alineándolo con el borde izquierdo de la tarjeta */
+}
+
+.card .content h2 {
+    color: #fff; /* Establece el color del texto del encabezado en blanco */
+    text-transform: uppercase; /* Transforma el texto del encabezado a mayúsculas */
+    font-size: 2.4em; /* Establece el tamaño de la fuente del encabezado en 2.4em */
+    line-height: 1em; /* Establece la altura de la línea del encabezado en 1em */
+}
+
+.card .content p {
+    color: #fff; /* Establece el color del texto de los párrafos en blanco */
+}
+
+.card .content a {
+    position: relative; /* Posiciona el enlace de manera relativa dentro del contenedor del contenido */
+    color: #111; /* Establece el color del texto del enlace en un tono oscuro (casi negro) */
+    background: #fff; /* Aplica un fondo blanco al enlace */
+    padding: 10px 20px; /* Añade un relleno interno de 10px en la parte superior e inferior y 20px en los lados */
+    border-radius: 10px; /* Redondea las esquinas del enlace con un radio de 10px */
+    display: inline-block; /* Hace que el enlace se comporte como un elemento en línea, pero con la capacidad de tener dimensiones (padding, margin, etc.) */
+    text-decoration: none; /* Elimina cualquier subrayado o decoración de texto predeterminada del enlace */
+    font-weight: 600; /* Aplica un grosor de fuente medio-alto al texto del enlace */
+    margin-top: 10px; /* Añade un margen superior de 10px para separar el enlace del contenido que está arriba */
+}
